@@ -1,4 +1,4 @@
-## Day1 - JavaScript Drum Kit🥁
+# Day1 - JavaScript Drum Kit🥁
 ```
 화면에 매칭 된 키보드 버튼을 누르면 연결된 audio 파일을 재생하는 프로젝트이다.
 ```
