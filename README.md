@@ -25,3 +25,5 @@
 | Day1 | 2023.02.08 | [JavaScript Drum Kit](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day1)               |
 | Day2 | 2023.02.09 | [CSS + JS Clock](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day2)                    |
 | Day3 | 2023.02.10 | [Playing with CSS Variables and JS](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day3) |
+| Day4 | 2023.02.12 | [Array Cardio Day 1]()                                                                               |
+| Day5 | 2023.02.12 | [Flex Panel Gallery]()                                                                               |
