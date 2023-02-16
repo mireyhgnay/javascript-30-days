@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+    <link rel="icon" href="https://fav.farm/✅" />
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+      // canvas, ctx 변수 : 드로우를 하기 위한 그림판과 펜 준비
+      const canvas = document.querySelector("#draw");
+      const ctx = canvas.getContext("2d"); // getContext() 메소드는 캔버스의 드로잉 컨텍스트를 반환
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx.strokeStyle = "#BADA55";
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.lineWidth = 100;
+
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+      let hue = 0;
+      let direction = true;
+
+      function draw(e) {
+        if (!isDrawing) return; // stop the fn from running when they are not moused down
+        console.log(e);
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.beginPath(); // 새로운 경로를 생성
+        // start from
+        ctx.moveTo(lastX, lastY); // x와 y의 좌표를 옮겨준다. (선의 시작점)
+        // go to
+        ctx.lineTo(e.offsetX, e.offsetY); // 선의 마지막 지점을 설정한다. (선의 종착점)
+        ctx.stroke(); // 마지막으로 stroke 메서드로 선을 그려준다. (선긋기)
+
+        // 처음에 lastX와 lastY를 0으로 설정했기 때문에 한 점에서 선이 그어지는 걸 바꾸기 위해서
+        // 선을 그린 후에는 lastX -> e.offsetX, lastY -> e.offsetY로 바꿔준다.
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+
+        hue++;
+        if (hue >= 360) {
+          hue = 0;
+        }
+        if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+          direction = !direction;
+        }
+
+        if (direction) {
+          ctx.lineWidth++;
+        } else {
+          ctx.lineWidth--;
+        }
+      }
+
+      // 마우스의 좌표를 받아준다
+      canvas.addEventListener("mousedown", (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
+
+      canvas.addEventListener("mousemove", draw);
+      // 이후에 mouseup과 mouseout 이벤트가 발생하면 isDrawing을 false로 바꿔준다.
+      // 이후에는 지아인을 바꿔주기 위한 코드이다.
+      canvas.addEventListener("mouseup", () => (isDrawing = false));
+      canvas.addEventListener("mouseout", () => (isDrawing = false));
+    </script>
+  </body>
+</html>
