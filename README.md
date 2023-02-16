@@ -29,4 +29,4 @@
 | Day5 | 2023.02.12 | [Flex Panel Gallery](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day5)                |
 | Day6 | 2023.02.13 | [Ajax Type Ahead](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day6)                   |
 | Day7 | 2023.02.16 | [Array Cardio Day 2](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day7)                |
-| Day8 | 2023.02.16 | [Fun with HTML5 Canvas]()                                                                            |
+| Day8 | 2023.02.16 | [Fun with HTML5 Canvas](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day8)             |

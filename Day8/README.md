@@ -1,4 +1,4 @@
-# Day6 - Fun with HTML5 Canvas ✏️
+# Day8 - Fun with HTML5 Canvas ✏️
 
 ```
 HTML의 canvas element와 다양한 메서드를 사용하여 낙서해보는 프로젝트이다.
