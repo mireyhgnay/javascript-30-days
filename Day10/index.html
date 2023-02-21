@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hold Shift to Check Multiple Checkboxes</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://fav.farm/✅" />
+  </head>
+  <body>
+    <div class="inbox">
+      <div class="item">
+        <input type="checkbox" />
+        <p>This is an inbox layout.</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Check one item</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Hold down your Shift key</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Check a lower item</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Everything in between should also be set to checked</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Try do it without any libraries</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Just regular JavaScript</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Good Luck!</p>
+      </div>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Don't forget to tweet your result!</p>
+      </div>
+    </div>
+
+    <script>
+      const checkboxes = document.querySelectorAll(
+        '.inbox input[type="checkbox"]'
+      );
+
+      let lastChecked;
+
+      function handleCheck(e) {
+        let inBetween = false;
+
+        // e.shiftKey를 통해 shift가 눌린상태일 때만 원하는 기능을 구현할 수 있도록 한다.
+        if (e.shiftKey && this.checked) {
+          // 각 체크박스들에 대해 shift키와 함께 선택한 checkbox이거나 그 전에 가장 최근에 선택했던 체크박스라면
+          // inBetween != inBetween 에 의해서 flase에서 true 로 바뀐다.
+          checkboxes.forEach((checkbox) => {
+            if (checkbox === this || checkbox === lastChecked) {
+              inBetween = !inBetween; // false 에서 true 가 됨
+            }
+
+            // isBetween이 true인 경우
+            if (inBetween) {
+              checkbox.checked = true; // 체크박스 선택
+            }
+          });
+        }
+
+        lastChecked = this;
+      }
+
+      // forEach문을 통해 각 checkbox에서 addEventListener의 click 이벤트를 받아준다.
+      checkboxes.forEach((checkbox) =>
+        checkbox.addEventListener("click", handleCheck)
+      );
+    </script>
+  </body>
+</html>
