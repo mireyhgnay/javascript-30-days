@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+    <link rel="icon" href="https://fav.farm/✅" />
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // 콘솔 메세지 출력
+      console.log("hello");
+
+      // warning : 콘솔에 경고 메세지를 출력
+      console.warn("OH NOOO");
+
+      // Error : 콘솔에 에러 메세지를 출력
+      console.error("Shit!");
+
+      // Info : 콘솔에 정보 메세지를 출력
+      console.info("Crocodiles eat 3-4 people per year");
+
+      // Assert : 주어진 가정이 거짓인 경우에 콘솔에 오류 메시지를 출력
+      // 참인 경우 아무것도 하지 않는다.
+      const p = document.querySelector("p");
+      console.assert(p.classList.contains("ouch"), "That is wrong!");
+
+      // clearing : 콘솔에 기록된 메시지를 모두 지운다
+      console.clear();
+
+      // Viewing DOM Elements
+      console.log(p);
+      // 콘솔에 주어진 객체의 속성 목록을 출력
+      console.dir(p);
+
+      console.clear();
+
+      // Grouping together
+      // group()메서드는 콘솔에 새로운 인라인 그룹을 만들어준다
+      // console.groupEnd()가 호출될 때까지 추가 레벨로 다음 콘솔 메시지를 들여 쓴다.
+      dogs.forEach((dog) => {
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd(`${dog.name}`);
+      });
+
+      // counting : ()안의 인자가 같은 것의 호출 횟수를 출력해준다.
+      console.count("Wes");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Wes");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+      console.count("Steve");
+
+      // timing : 작업이 얼마나 걸리는지 추적할 수 있다.
+      console.time("fetching data");
+      fetch("https://api.github.com/users/wesbos")
+        .then((data) => data.json())
+        .then((data) => {
+          // console.timeEnd()가 호출될 때까지의 시간을 출력한다.
+          console.timeEnd("fetching data");
+          console.log(data);
+        });
+
+      // Table : 데이터를 표의 형태로 콘솔에 출력해준다.
+      console.table(dogs);
+    </script>
+  </body>
+</html>
