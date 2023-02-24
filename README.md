@@ -33,4 +33,4 @@
 | Day9  | 2023.02.21 | [14 Must Know Dev Tools Tricks](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day9)            |
 | Day10 | 2023.02.21 | [Hold Shift to Check Multiple Checkboxes](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day10) |
 | Day11 | 2023.02.22 | [Custom HTML5 Video Player](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day11)               |
-| Day12 | 2023.02.24 | [Key Sequence Detection]()                                                                                  |
+| Day12 | 2023.02.24 | [Key Sequence Detection](https://github.com/mireyhgnay/javascript-30-days/tree/main/Day12)                  |
